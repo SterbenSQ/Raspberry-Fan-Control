@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/stianeikeland/go-rpio/v4"
 	"os/exec"
@@ -10,9 +11,24 @@ import (
 )
 
 // 控制的引脚（BCM编号）
-const fanPin = 17
+//const fanPin = 17
 
 func main() {
+
+	var config struct {
+		Pin  int64
+		Low  float64
+		High float64
+	}
+
+	flag.Int64Var(&config.Pin, "pin", 17, "可编程高压引脚BCM编码")
+	flag.Float64Var(&config.Low, "low", 45.0, "风扇停转的温度")
+	flag.Float64Var(&config.High, "high", 50.0, "风扇开始转动的温度")
+
+	//file, err := os.Open("./tsconfig.json")
+	//if err != nil {
+	//	panic(err)
+	//}
 	fmt.Println("fanController is running")
 	err := rpio.Open()
 	if err != nil {
@@ -21,7 +37,7 @@ func main() {
 		fmt.Println("Start Fan Controller SuccessFully...")
 	}
 	defer rpio.Close()
-
+	fanPin := config.Pin
 	pin := rpio.Pin(fanPin)
 	pin.Input()
 	//不断检测cpu温度，当温度超过47度再打开风扇,小于45度则关闭风扇
@@ -34,13 +50,13 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
-		if temp > 47.0 {
+		if temp > config.High {
 			if !isHigh {
 				pin.High()
 				fmt.Println("Temperature is too high,Open Fan ")
 				isHigh = true
 			}
-		} else if temp < 45.0 {
+		} else if temp < config.Low {
 			if isHigh {
 				pin.Low()
 				isHigh = false
