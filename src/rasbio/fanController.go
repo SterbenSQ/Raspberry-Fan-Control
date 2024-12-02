@@ -16,14 +16,20 @@ import (
 func main() {
 
 	var config struct {
-		Pin  int64
+		Pin  int
 		Low  float64
 		High float64
 	}
 
-	flag.Int64Var(&config.Pin, "pin", 17, "可编程高压引脚BCM编码")
-	flag.Float64Var(&config.Low, "low", 45.0, "风扇停转的温度")
-	flag.Float64Var(&config.High, "high", 50.0, "风扇开始转动的温度")
+	flag.IntVar(&config.Pin, "pin", 0, "可编程高压引脚BCM编码")
+	flag.Float64Var(&config.Low, "low", 0, "风扇停转的温度")
+	flag.Float64Var(&config.High, "high", 0, "风扇开始转动的温度")
+	flag.Parse()
+	fmt.Printf("获取到配置：config:{pin:%d,low:%f,high:%f}\n", config.Pin, config.Low, config.High)
+	if config.Low == 0 || config.High == 0 || config.Pin == 0 {
+		flag.Usage()
+		return
+	}
 
 	//file, err := os.Open("./tsconfig.json")
 	//if err != nil {
