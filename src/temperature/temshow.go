@@ -26,10 +26,10 @@ func main() {
 		Opin: rpio.Pin(gpio_pin0),
 	}
 	d.start()
-	var humidity, tempe_high, tempe_low uint8
-	if d.DHT11_Read_Data(&tempe_high, &tempe_low, &humidity) == 0 {
-		fmt.Printf("DHT11_temp_high = %d\r\n", tempe_high)
-		fmt.Printf("DHT11_temp_low = %d\r\n", tempe_low)
+	var humidity, tempeHigh, tempeLow uint8
+	if d.DHT11_Read_Data(&tempeHigh, &tempeLow, &humidity) == 0 {
+		fmt.Printf("DHT11_temp_high = %d\r\n", tempeHigh)
+		fmt.Printf("DHT11_temp_low = %d\r\n", tempeLow)
 		fmt.Printf("DHT11_humi = %d\r\n", humidity)
 	} else {
 		fmt.Println("DHT11 DATA Fail \r\n")
@@ -43,8 +43,8 @@ func (d *DHT11) start() {
 	defer func() {
 		err := rpio.Close()
 		if err != nil {
-			log.Fatal(err)
 			d.close()
+			log.Fatal(err)
 		}
 	}()
 	d.Opin.Output()
@@ -55,7 +55,11 @@ func (d *DHT11) start() {
 func (d *DHT11) close() {
 	d.Opin.Low()
 	d.Pin.Low()
-	rpio.Close()
+	err := rpio.Close()
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
 }
 
 func (d *DHT11) DHT11_Detection() {
