@@ -25,6 +25,7 @@ func main() {
 		Pin:  rpio.Pin(data_pin0),
 		Opin: rpio.Pin(gpio_pin0),
 	}
+	d.DHT11_Detection()
 	d.start()
 	var humidity, tempeHigh, tempeLow uint8
 	if d.DHT11_Read_Data(&tempeHigh, &tempeLow, &humidity) == 0 {
@@ -66,6 +67,8 @@ func (d *DHT11) DHT11_Detection() {
 	if d.DHT11_Init() == 0 {
 		Dht11Flag := 1
 		fmt.Println("DHT11 OK \r\n", Dht11Flag)
+	} else {
+		fmt.Println("DHT11 Fail \r\n")
 	}
 }
 
