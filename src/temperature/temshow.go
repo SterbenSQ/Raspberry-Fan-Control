@@ -28,5 +28,6 @@ func main() {
 		fmt.Println("DHT11 DATA Fail \r")
 	}
 	defer d.CloseDevice()
+	d.CloseDevice()
 
 }
