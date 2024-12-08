@@ -28,7 +28,8 @@ func main() {
 	d.DHT11_Detection()
 	d.start()
 	var humidity, tempeHigh, tempeLow uint8
-	if d.DHT11_Read_Data(&tempeHigh, &tempeLow, &humidity) == 0 {
+	var result0 = d.DHT11_Read_Data(&tempeHigh, &tempeLow, &humidity)
+	if result0 == 0 {
 		fmt.Printf("DHT11_temp_high = %d\r\n", tempeHigh)
 		fmt.Printf("DHT11_temp_low = %d\r\n", tempeLow)
 		fmt.Printf("DHT11_humi = %d\r\n", humidity)
