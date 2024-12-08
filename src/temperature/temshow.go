@@ -64,8 +64,8 @@ func (d *DHT11) close() {
 
 func (d *DHT11) DHT11_Detection() {
 	if d.DHT11_Init() == 0 {
-		DHT11_flag := 1
-		fmt.Println("DHT11 OK \r\n", DHT11_flag)
+		Dht11Flag := 1
+		fmt.Println("DHT11 OK \r\n", Dht11Flag)
 	}
 }
 
