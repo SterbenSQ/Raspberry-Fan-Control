@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/stianeikeland/go-rpio/v4"
+	"github.com/SterbenSQ/go-rpio/v4"
 	"log"
 	"time"
 )

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/stianeikeland/go-rpio/v4"
+	"github.com/SterbenSQ/go-rpio/v4"
 	"log"
 )
 
@@ -16,6 +16,7 @@ func main() {
 		Pin:  rpio.Pin(dataPin26),
 		Opin: rpio.Pin(gpioPin19),
 	}
+	defer d.CloseDevice()
 	d.Dht11Detection()
 	d.StartDevice()
 	var humidity, tempeHigh, tempeLow uint8
@@ -27,7 +28,6 @@ func main() {
 	} else {
 		fmt.Println("DHT11 DATA Fail \r")
 	}
-	defer d.CloseDevice()
 	d.CloseDevice()
 
 }

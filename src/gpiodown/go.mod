@@ -1,4 +1,4 @@
-module temperature
+module gpiodown
 
 go 1.23
 
