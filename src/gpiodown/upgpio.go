@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/SterbenSQ/go-rpio/v4"
+	"github.com/stianeikeland/go-rpio/v4"
 	"log"
 )
 

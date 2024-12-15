@@ -2,27 +2,27 @@ package main
 
 import (
 	"fmt"
-	"github.com/SterbenSQ/go-rpio/v4"
+	"github.com/stianeikeland/go-rpio/v4"
 	"time"
 )
 
-const gpioPin19 uint8 = 19
+// const gpioPin19 uint8 = 19
 const dataPin26 uint8 = 26
 
 type DHT11 struct {
-	Pin  rpio.Pin
-	Opin rpio.Pin
+	Pin rpio.Pin
+	//Opin rpio.Pin
 }
 
 // 为传感器供电
 func (d *DHT11) StartDevice() {
-	d.Opin.Output()
-	d.Opin.Write(rpio.High)
+	//d.Opin.Output()
+	//d.Opin.Write(rpio.High)
 }
 
 // 关闭传感器
 func (d *DHT11) CloseDevice() {
-	d.Opin.Low()
+	//d.Opin.Low()
 	d.Pin.Low()
 }
 
@@ -121,6 +121,7 @@ func (d *DHT11) Dht11ReadData(temphigh *uint8, templow *uint8, humi *uint8) uint
 	if d.Dht11Check() == 0 { //等待DHT11回应，0为成功回应
 		for i := 0; i < 5; i++ { //读取40位数据
 			buf[i] = d.Dht11ReadByte() //读出数据
+			fmt.Printf("DHT11 Read Byte : %d\r\n", buf[i])
 		}
 		if (buf[0] + buf[1] + buf[2] + buf[3]) == buf[4] { //数据校验
 
