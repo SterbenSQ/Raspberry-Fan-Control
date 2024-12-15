@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/SterbenSQ/go-rpio/v4"
-	"log"
 	"time"
 )
 
@@ -17,13 +16,6 @@ type DHT11 struct {
 
 // 为传感器供电
 func (d *DHT11) StartDevice() {
-	defer func() {
-		err := rpio.Close()
-		if err != nil {
-			d.CloseDevice()
-			log.Fatal(err)
-		}
-	}()
 	d.Opin.Output()
 	d.Opin.Write(rpio.High)
 }
@@ -32,11 +24,6 @@ func (d *DHT11) StartDevice() {
 func (d *DHT11) CloseDevice() {
 	d.Opin.Low()
 	d.Pin.Low()
-	err := rpio.Close()
-	if err != nil {
-		log.Fatal(err)
-		return
-	}
 }
 
 func (d *DHT11) Dht11Detection() {

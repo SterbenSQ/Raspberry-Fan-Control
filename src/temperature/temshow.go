@@ -9,6 +9,7 @@ import (
 func main() {
 	//start(gpio_pin0)
 	err := rpio.Open()
+	defer rpio.Close()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -16,7 +17,6 @@ func main() {
 		Pin:  rpio.Pin(dataPin26),
 		Opin: rpio.Pin(gpioPin19),
 	}
-	defer d.CloseDevice()
 	d.Dht11Detection()
 	d.StartDevice()
 	var humidity, tempeHigh, tempeLow uint8
@@ -29,5 +29,4 @@ func main() {
 		fmt.Println("DHT11 DATA Fail \r")
 	}
 	d.CloseDevice()
-
 }

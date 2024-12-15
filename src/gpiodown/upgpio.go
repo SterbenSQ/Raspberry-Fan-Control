@@ -26,21 +26,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer func() {
-		err := rpio.Close()
-		if err != nil {
-			log.Fatal(err)
-		}
-	}()
+	defer rpio.Close()
 	pin19 := rpio.Pin(pin)
 	//pin26 := rpio.Pin(activePin26)
 	//pin26.Output()
 	//pin26.Low()
 	pin19.Output()
 	pin19.High()
-	err = rpio.Close()
-	if err != nil {
-		log.Fatal(err)
-		return
-	}
 }

@@ -1,2 +1,4 @@
 github.com/SterbenSQ/go-rpio/v4 v4.6.2 h1:qWy5Aox8DXMZIRRcjt3XKilLKsdO5KD81FO1UoUN79k=
 github.com/SterbenSQ/go-rpio/v4 v4.6.2/go.mod h1:79ZFu3On0PlzEo/g7pReQalDDgq7YZ8Gh3Dwiqf6sm8=
+github.com/SterbenSQ/go-rpio/v4 v4.6.4 h1:C65LpenW4FmuuB+jeu87vCF8grYRYz87jS0xp8GUoNc=
+github.com/SterbenSQ/go-rpio/v4 v4.6.4/go.mod h1:79ZFu3On0PlzEo/g7pReQalDDgq7YZ8Gh3Dwiqf6sm8=

@@ -1,3 +1,4 @@
+github.com/SterbenSQ/go-rpio/v4 v4.6.2/go.mod h1:79ZFu3On0PlzEo/g7pReQalDDgq7YZ8Gh3Dwiqf6sm8=
 github.com/shirou/gopsutil v3.21.11+incompatible h1:+1+c1VGhc88SSonWP6foOcLhvnKlUeu/erjjvaPEYiI=
 github.com/shirou/gopsutil v3.21.11+incompatible/go.mod h1:5b4v6he4MtMOwMlS0TUMTu2PcXUg8+E1lC7eC3UO/RA=
 github.com/stianeikeland/go-rpio/v4 v4.6.0 h1:eAJgtw3jTtvn/CqwbC82ntcS+dtzUTgo5qlZKe677EY=

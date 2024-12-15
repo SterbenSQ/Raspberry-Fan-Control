@@ -1,3 +1,6 @@
+github.com/SterbenSQ/go-rpio/v4 v4.6.2 h1:qWy5Aox8DXMZIRRcjt3XKilLKsdO5KD81FO1UoUN79k=
 github.com/SterbenSQ/go-rpio/v4 v4.6.2/go.mod h1:79ZFu3On0PlzEo/g7pReQalDDgq7YZ8Gh3Dwiqf6sm8=
+github.com/SterbenSQ/go-rpio/v4 v4.6.4 h1:C65LpenW4FmuuB+jeu87vCF8grYRYz87jS0xp8GUoNc=
+github.com/SterbenSQ/go-rpio/v4 v4.6.4/go.mod h1:79ZFu3On0PlzEo/g7pReQalDDgq7YZ8Gh3Dwiqf6sm8=
 github.com/shirou/gopsutil v3.21.11+incompatible/go.mod h1:5b4v6he4MtMOwMlS0TUMTu2PcXUg8+E1lC7eC3UO/RA=
 github.com/stianeikeland/go-rpio/v4 v4.6.0/go.mod h1:A3GvHxC1Om5zaId+HqB3HKqx4K/AqeckxB7qRjxMK7o=
